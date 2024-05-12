@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
+import emailjs from '@emailjs/browser';
 
 @Component({
   selector: 'app-contact',
@@ -10,6 +11,8 @@ export class ContactComponent {
 
   contactForm!: UntypedFormGroup;
   errormessage: any = " Please enter a name*";
+
+  messageSend:any = false
 
   constructor(private formBuilder: UntypedFormBuilder) { }
 
@@ -49,8 +52,42 @@ export class ContactComponent {
   }
 
   sendMsg() {
+    console.log("adasd")
     if (this.ValidateFrom()) {
       document.getElementById('error-msg')!.innerHTML =""
     }
+
+    const templateParams = {
+      from_name: this.contactForm.get('name')?.value,
+      message:this.contactForm.get('comments')?.value,
+      to_name:this.contactForm.get('email')?.value,
+      reply_to:this.contactForm.get('subject')?.value,
+    
+    };
+    
+    emailjs
+      .send('service_4rfieop', 'template_0yvmyba', templateParams, {
+        publicKey: '9YwPzn3x_fXhJTIVb'
+    
+      })
+      .then(
+        (response) => {
+          this.messageSend = true
+          console.log('SUCCESS!', response.status, response.text);
+          setTimeout(() => {
+            this.messageSend = false
+          }, 2000);
+          this.contactForm.reset()
+        },
+        (err) => {
+          console.log('FAILED...', err);
+        },
+      );
+
+
+ 
   }
+
+
+
 }

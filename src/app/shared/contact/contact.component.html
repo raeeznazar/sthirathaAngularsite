@@ -13,15 +13,19 @@
             <div class="col-lg-5">
                 <div class="contact-details mb-4 mb-lg-0">
                     <p class="mb-3"><i class="mdi mdi-email-outline align-middle text-muted fs-20 me-2"></i> <span
-                            class="fw-medium">support&#64;website.com</span></p>
+                            class="fw-medium">sales&#64;sthiratha.in</span></p>
+                    <p class="mb-3" alt="Gmail address"><i class="mdi mdi mdi-google-plus align-middle text-muted fs-20 me-2"></i> <span
+                            class="fw-medium">sthirathapress&#64;gmail.com</span></p>
                     <p class="mb-3"><i class="mdi mdi-web align-middle text-muted fs-20 me-2"></i> <span
                             class="fw-medium">www.sthiratha.in</span></p>
+                    <p class="mb-3"><a href="https://wa.me/919847166333" target="_blank" style="text-decoration: none; cursor: pointer; color: blue; "><i class="mdi mdi-whatsapp align-middle text-muted fs-20 me-2"></i> <span
+                            class="fw-medium">+91 9847166333</span></a></p>
                     <p class="mb-3"><i class="mdi mdi-phone align-middle text-muted fs-20 me-2"></i> <span
                             class="fw-medium">+91 9847166333</span></p>
                     <p class="mb-3"><i class="mdi mdi-hospital-building text-muted fs-20 me-2"></i> <span
                             class="fw-medium">9:30 AM - 7:30 PM</span></p>
                     <p class="mb-3"><i class="mdi mdi-map-marker-outline text-muted fs-20 me-2"></i> <span
-                            class="fw-medium">S.K. Arcade Kannur Road West Nadakkave, Vandipetta, West Hill Kozhikode, Kerala 673011 India</span></p>
+                            class="fw-medium">S.K. Arcade Kannur Road West Nadakkave, Vandipetta, West Hill Kozhikode, Kerala 673011 India </span> </p> 
                 </div>
                 <!--end contact-details-->
             </div>
@@ -70,6 +74,8 @@
                     </div><!-- end row -->
                 </form>
                 <!--end form-->
+
+                <p *ngIf="messageSend">Your message has been sent</p>
             </div>
             <!--end col-->
         </div>
